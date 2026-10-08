@@ -1,0 +1,16 @@
+{
+  "table": "SATYA.SISTEMA",
+  "primary_key": "IDSISTEMA",
+  "foreign_keys": {
+    "IDCLIENTE": "SATYA.CLIENTE"
+  },
+  "key_columns": [
+    "IDSISTEMA",
+    "CODIGO",
+    "DESCRIPCION",
+    "IDCLIENTE",
+    "ESTADO",
+    "FCREACION",
+    "FBAJA"
+  ]
+}

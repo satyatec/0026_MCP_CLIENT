@@ -1,0 +1,23 @@
+{
+  "table": "SATYA.FACTURAPRO",
+  "engine": "oracle",
+  "primary_key": "IDFACTURAPRO",
+  "columns": [
+    {"name": "IDFACTURAPRO", "type": "NUMBER(9)", "nullable": false},
+    {"name": "IDPROVEEDOR", "type": "NUMBER(9)", "nullable": false},
+    {"name": "IDSERIE_FACTURAPRO", "type": "NUMBER(9)", "nullable": false},
+    {"name": "FFACTURAPRO", "type": "DATE", "nullable": false},
+    {"name": "NFACTURAPRO", "type": "NUMBER(9)", "nullable": false},
+    {"name": "NFAC_PROVEEDOR", "type": "VARCHAR2(50)", "nullable": true},
+    {"name": "IDEST_FACTURAPRO", "type": "NUMBER(9)", "nullable": false},
+    {"name": "FREGISTRO", "type": "DATE", "nullable": false},
+    {"name": "RAZON_SOCIAL", "type": "VARCHAR2(512)", "nullable": false},
+    {"name": "CIF", "type": "VARCHAR2(50)", "nullable": false},
+    {"name": "BASE_IMPONIBLE", "type": "NUMBER(14,2)", "nullable": false},
+    {"name": "IVA", "type": "NUMBER(14,2)", "nullable": false},
+    {"name": "RECARGO", "type": "NUMBER(14,2)", "nullable": false},
+    {"name": "RETENCION", "type": "NUMBER(14,2)", "nullable": false},
+    {"name": "TOTAL", "type": "NUMBER(14,2)", "nullable": false},
+    {"name": "IMPORTE", "type": "NUMBER(14,2)", "nullable": false}
+  ]
+}

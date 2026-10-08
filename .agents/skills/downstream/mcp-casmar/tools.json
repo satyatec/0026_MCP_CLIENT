@@ -1,0 +1,84 @@
+[
+  {
+    "action_name": "casmar__get_casmar_skill",
+    "description": "Retorna la guía operativa oficial (SKILL.md) de Casmar Electrónica.",
+    "input_schema": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "action_name": "casmar__search_casmar_products",
+    "description": "Busca productos en el catálogo de Casmar por texto o referencia.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "query": { "type": "string" }
+      },
+      "required": ["query"]
+    }
+  },
+  {
+    "action_name": "casmar__get_casmar_product_details",
+    "description": "Consulta ficha técnica, stock y precios B2B de un producto de Casmar.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "sku": { "type": "string" }
+      },
+      "required": ["sku"]
+    }
+  },
+  {
+    "action_name": "casmar__list_casmar_orders",
+    "description": "Lista el historial de pedidos de compra tramitados en Casmar.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "page": { "type": "integer", "default": 1 }
+      }
+    }
+  },
+  {
+    "action_name": "casmar__get_casmar_order_detail",
+    "description": "Consulta el desglose de líneas y albaranes asociados a un pedido de Casmar.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "order_id": { "type": "string" }
+      },
+      "required": ["order_id"]
+    }
+  },
+  {
+    "action_name": "casmar__list_casmar_invoices",
+    "description": "Lista facturas emitidas por Casmar con importes y fechas de vencimiento.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "page": { "type": "integer", "default": 1 }
+      }
+    }
+  },
+  {
+    "action_name": "casmar__list_casmar_delivery_notes",
+    "description": "Lista albaranes de entrega emitidos por Casmar.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "page": { "type": "integer", "default": 1 }
+      }
+    }
+  },
+  {
+    "action_name": "casmar__download_casmar_datasheet",
+    "description": "Descarga PDF oficial de ficha técnica de producto a la carpeta de descargas.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "sku": { "type": "string" }
+      },
+      "required": ["sku"]
+    }
+  }
+]

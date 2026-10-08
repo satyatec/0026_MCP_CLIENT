@@ -1,0 +1,20 @@
+{
+  "table": "SATYA.TIEMPO_TRABAJADO",
+  "primary_key": "IDTIEMPO_TRABAJADO",
+  "foreign_keys": {
+    "IDPARTE_MONTAJE": "SATYA.PARTE_MONTAJE",
+    "IDEMPLEADO": "SATYA.EMPLEADO"
+  },
+  "key_columns": [
+    "IDTIEMPO_TRABAJADO",
+    "IDPARTE_MONTAJE",
+    "IDEMPLEADO",
+    "FINICIO",
+    "FFIN",
+    "HORAS",
+    "ES_DESPLAZAMIENTO",
+    "COSTE_TOTAL",
+    "ESTADO"
+  ],
+  "notes": "ES_DESPLAZAMIENTO: 0 = Mano de Obra, 1 = Desplazamiento. COSTE_TOTAL = Coste directo imputado."
+}

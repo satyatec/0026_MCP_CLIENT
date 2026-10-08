@@ -1,0 +1,64 @@
+[
+  {
+    "action_name": "ajax__ajax_list_spaces",
+    "description": "Lista todos los espacios comercializados y monitoreados de Ajax Systems.",
+    "input_schema": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "action_name": "ajax__ajax_list_hubs",
+    "description": "Lista los hubs de alarma físicos instalados y su estado de conexión.",
+    "input_schema": {
+      "type": "object",
+      "properties": {}
+    }
+  },
+  {
+    "action_name": "ajax__ajax_get_space_details",
+    "description": "Detalle completo de un espacio en Ajax Systems (dirección, zonas, estado general).",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "space_id": { "type": "string" }
+      },
+      "required": ["space_id"]
+    }
+  },
+  {
+    "action_name": "ajax__ajax_list_space_devices",
+    "description": "Lista dispositivos, detectores y sensores asociados a un espacio de Ajax.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "space_id": { "type": "string" }
+      },
+      "required": ["space_id"]
+    }
+  },
+  {
+    "action_name": "ajax__ajax_get_event_logs",
+    "description": "Consulta el historial de eventos, disparos y alarmas de un espacio.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "space_id": { "type": "string" },
+        "limit": { "type": "integer", "default": 50 }
+      },
+      "required": ["space_id"]
+    }
+  },
+  {
+    "action_name": "ajax__ajax_set_security_mode",
+    "description": "Cambia el estado de armado o seguridad de un espacio (armed, disarmed, night_mode).",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "space_id": { "type": "string" },
+        "mode": { "type": "string", "enum": ["armed", "disarmed", "night_mode"] }
+      },
+      "required": ["space_id", "mode"]
+    }
+  }
+]

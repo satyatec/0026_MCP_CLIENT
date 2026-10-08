@@ -1,0 +1,23 @@
+{
+  "table": "SATYA.LFACTURACLI",
+  "primary_key": "IDLFACTURACLI",
+  "foreign_keys": {
+    "IDFACTURACLI": "SATYA.FACTURACLI",
+    "IDSISTEMA": "SATYA.SISTEMA",
+    "IDLALBARANCLI": "SATYA.LALBARANCLI",
+    "IDARTICULO": "SATYA.ARTICULO"
+  },
+  "key_columns": [
+    "IDLFACTURACLI",
+    "IDFACTURACLI",
+    "IDSISTEMA",
+    "IDLALBARANCLI",
+    "CODIGO",
+    "DESCRIPCION",
+    "UNIDADES",
+    "PRECIO",
+    "DTO",
+    "IVA",
+    "IMPORTE"
+  ]
+}

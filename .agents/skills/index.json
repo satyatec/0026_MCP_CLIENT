@@ -1,0 +1,527 @@
+{
+  "ajax__ajax_list_spaces": {
+    "mcp": "ajax",
+    "desc": "Lista todos los espacios comercializados y monitoreados de Ajax Systems.",
+    "params": {}
+  },
+  "ajax__ajax_list_hubs": {
+    "mcp": "ajax",
+    "desc": "Lista los hubs de alarma físicos instalados y su estado de conexión.",
+    "params": {}
+  },
+  "ajax__ajax_get_space_details": {
+    "mcp": "ajax",
+    "desc": "Detalle completo de un espacio en Ajax Systems (dirección, zonas, estado general).",
+    "params": {
+      "space_id": {
+        "type": "string",
+        "req": true
+      }
+    }
+  },
+  "ajax__ajax_list_space_devices": {
+    "mcp": "ajax",
+    "desc": "Lista dispositivos, detectores y sensores asociados a un espacio de Ajax.",
+    "params": {
+      "space_id": {
+        "type": "string",
+        "req": true
+      }
+    }
+  },
+  "ajax__ajax_get_event_logs": {
+    "mcp": "ajax",
+    "desc": "Consulta el historial de eventos, disparos y alarmas de un espacio.",
+    "params": {
+      "space_id": {
+        "type": "string",
+        "req": true
+      },
+      "limit": {
+        "type": "integer",
+        "req": false,
+        "default": 50
+      }
+    }
+  },
+  "ajax__ajax_set_security_mode": {
+    "mcp": "ajax",
+    "desc": "Cambia el estado de armado o seguridad de un espacio (armed, disarmed, night_mode).",
+    "params": {
+      "space_id": {
+        "type": "string",
+        "req": true
+      },
+      "mode": {
+        "type": "string",
+        "req": true
+      }
+    }
+  },
+  "aql__search_aql_products": {
+    "mcp": "aql",
+    "desc": "Busca productos en el catálogo B2B de AQL Protección por texto o referencia.",
+    "params": {
+      "query": {
+        "type": "string",
+        "req": true
+      },
+      "page": {
+        "type": "integer",
+        "req": false,
+        "default": 1
+      }
+    }
+  },
+  "aql__list_aql_orders": {
+    "mcp": "aql",
+    "desc": "Listado de pedidos tramitados en AQL Protección con número, fecha, importe total y estado.",
+    "params": {
+      "page": {
+        "type": "integer",
+        "req": false,
+        "default": 1
+      }
+    }
+  },
+  "aql__get_aql_order_detail": {
+    "mcp": "aql",
+    "desc": "Desglose completo de líneas, artículos y precios de un pedido en AQL Protección.",
+    "params": {
+      "order_id": {
+        "type": "string",
+        "req": true
+      }
+    }
+  },
+  "casmar__get_casmar_skill": {
+    "mcp": "casmar",
+    "desc": "Retorna la guía operativa oficial (SKILL.md) de Casmar Electrónica.",
+    "params": {}
+  },
+  "casmar__search_casmar_products": {
+    "mcp": "casmar",
+    "desc": "Busca productos en el catálogo de Casmar por texto o referencia.",
+    "params": {
+      "query": {
+        "type": "string",
+        "req": true
+      }
+    }
+  },
+  "casmar__get_casmar_product_details": {
+    "mcp": "casmar",
+    "desc": "Consulta ficha técnica, stock y precios B2B de un producto de Casmar.",
+    "params": {
+      "sku": {
+        "type": "string",
+        "req": true
+      }
+    }
+  },
+  "casmar__list_casmar_orders": {
+    "mcp": "casmar",
+    "desc": "Lista el historial de pedidos de compra tramitados en Casmar.",
+    "params": {
+      "page": {
+        "type": "integer",
+        "req": false,
+        "default": 1
+      }
+    }
+  },
+  "casmar__get_casmar_order_detail": {
+    "mcp": "casmar",
+    "desc": "Consulta el desglose de líneas y albaranes asociados a un pedido de Casmar.",
+    "params": {
+      "order_id": {
+        "type": "string",
+        "req": true
+      }
+    }
+  },
+  "casmar__list_casmar_invoices": {
+    "mcp": "casmar",
+    "desc": "Lista facturas emitidas por Casmar con importes y fechas de vencimiento.",
+    "params": {
+      "page": {
+        "type": "integer",
+        "req": false,
+        "default": 1
+      }
+    }
+  },
+  "casmar__list_casmar_delivery_notes": {
+    "mcp": "casmar",
+    "desc": "Lista albaranes de entrega emitidos por Casmar.",
+    "params": {
+      "page": {
+        "type": "integer",
+        "req": false,
+        "default": 1
+      }
+    }
+  },
+  "casmar__download_casmar_datasheet": {
+    "mcp": "casmar",
+    "desc": "Descarga PDF oficial de ficha técnica de producto a la carpeta de descargas.",
+    "params": {
+      "sku": {
+        "type": "string",
+        "req": true
+      }
+    }
+  },
+  "db__run_query": {
+    "mcp": "db-planner",
+    "desc": "Ejecuta una consulta SQL SELECT en la base de datos PostgreSQL Planner pasando connection='planner_p",
+    "params": {
+      "connection": {
+        "type": "string",
+        "req": false,
+        "default": "planner_pg"
+      },
+      "sql": {
+        "type": "string",
+        "req": true
+      }
+    }
+  },
+  "db__schema_information": {
+    "mcp": "db-planner",
+    "desc": "Inspecciona columnas y tipos de tablas de la conexión PostgreSQL Planner.",
+    "params": {
+      "connection": {
+        "type": "string",
+        "req": false,
+        "default": "planner_pg"
+      },
+      "table_name": {
+        "type": "string",
+        "req": true
+      }
+    }
+  },
+  "detnov__list_detnov_invoices": {
+    "mcp": "detnov",
+    "desc": "Consulta facturas reales emitidas por Detnov Security en un rango de fechas.",
+    "params": {
+      "start_date": {
+        "type": "string",
+        "req": false
+      },
+      "end_date": {
+        "type": "string",
+        "req": false
+      }
+    }
+  },
+  "detnov__list_detnov_orders": {
+    "mcp": "detnov",
+    "desc": "Consulta histórico de pedidos de compra en Detnov Security en un rango de fechas.",
+    "params": {
+      "start_date": {
+        "type": "string",
+        "req": false
+      },
+      "end_date": {
+        "type": "string",
+        "req": false
+      }
+    }
+  },
+  "detnov__get_detnov_order_detail": {
+    "mcp": "detnov",
+    "desc": "Desglose de líneas de un pedido de compra en Detnov Security.",
+    "params": {
+      "order_number": {
+        "type": "string",
+        "req": true
+      },
+      "exercise": {
+        "type": "integer",
+        "req": false,
+        "default": 2026
+      }
+    }
+  },
+  "ibd__search_ibd_products": {
+    "mcp": "ibd",
+    "desc": "Busca productos, referencias Dahua y precios de instalador B2B en el catalogo de IBD Global.",
+    "params": {
+      "query": {
+        "type": "string",
+        "req": true
+      }
+    }
+  },
+  "ibd__list_ibd_orders": {
+    "mcp": "ibd",
+    "desc": "Lista los pedidos de compra tramitados en el portal de IBD Global.",
+    "params": {
+      "page": {
+        "type": "integer",
+        "req": false,
+        "default": 1
+      }
+    }
+  },
+  "ibd__get_ibd_order_detail": {
+    "mcp": "ibd",
+    "desc": "Consulta el detalle de un pedido de IBD Global con sus lineas de articulos, cantidades, subtotales y",
+    "params": {
+      "order_id": {
+        "type": "string",
+        "req": true
+      }
+    }
+  },
+  "ibd__download_ibd_order_pdf": {
+    "mcp": "ibd",
+    "desc": "Descarga el documento oficial de pedido de IBD Global en formato PDF a la carpeta downloads/ibd/pedi",
+    "params": {
+      "order_id": {
+        "type": "string",
+        "req": true
+      }
+    }
+  },
+  "ibd__list_ibd_invoices": {
+    "mcp": "ibd",
+    "desc": "Lista las facturas emitidas por IBD Global con sus importes, fechas de vencimiento y estados.",
+    "params": {
+      "page": {
+        "type": "integer",
+        "req": false,
+        "default": 1
+      }
+    }
+  },
+  "ibd__download_ibd_invoice_pdf": {
+    "mcp": "ibd",
+    "desc": "Descarga la factura oficial de IBD Global en formato PDF a la carpeta downloads/ibd/facturas/.",
+    "params": {
+      "invoice_id": {
+        "type": "string",
+        "req": true
+      }
+    }
+  },
+  "ibd__download_ibd_delivery_note_pdf": {
+    "mcp": "ibd",
+    "desc": "Descarga el albaran de entrega / picking oficial en formato PDF a la carpeta downloads/ibd/albaranes",
+    "params": {
+      "delivery_note_id": {
+        "type": "string",
+        "req": true
+      }
+    }
+  },
+  "ibd__get_ibd_account_profile": {
+    "mcp": "ibd",
+    "desc": "Consulta los datos de la cuenta de cliente, NIF/CIF, contacto y dirección en IBD Global.",
+    "params": {}
+  },
+  "saltoki__search_saltoki_products": {
+    "mcp": "saltoki",
+    "desc": "Busca productos en el catálogo de Saltoki por texto/SKU con filtro opcional por categoría (acepta ta",
+    "params": {
+      "query": {
+        "type": "string",
+        "req": false,
+        "default": ""
+      },
+      "category": {
+        "type": "string",
+        "req": false,
+        "default": null
+      },
+      "category_id": {
+        "type": "string",
+        "req": false,
+        "default": null
+      },
+      "offset": {
+        "type": "integer",
+        "req": false,
+        "default": 0
+      },
+      "grouped": {
+        "type": "boolean",
+        "req": false,
+        "default": false
+      },
+      "in_recent_purchases": {
+        "type": "boolean",
+        "req": false,
+        "default": false
+      }
+    }
+  },
+  "saltoki__get_saltoki_product": {
+    "mcp": "saltoki",
+    "desc": "Consulta precio de coste, venta y descripción homogeneizada de un producto por SKU en Saltoki (consu",
+    "params": {
+      "sku": {
+        "type": "string",
+        "req": true
+      }
+    }
+  },
+  "saltoki__get_saltoki_product_extended": {
+    "mcp": "saltoki",
+    "desc": "Consulta extendida con existencias por delegación, plazos de envío y ficha técnica oficial para un S",
+    "params": {
+      "sku": {
+        "type": "string",
+        "req": true
+      }
+    }
+  },
+  "saltoki__list_saltoki_orders": {
+    "mcp": "saltoki",
+    "desc": "Lista pedidos con filtros por fecha, texto, obra o SKU contenido.",
+    "params": {
+      "page": {
+        "type": "integer",
+        "req": false,
+        "default": 1
+      }
+    }
+  },
+  "saltoki__trace_saltoki_document": {
+    "mcp": "saltoki",
+    "desc": "Trazabilidad completa entre documentos de Saltoki: Factura <-> Albarán <-> Pedido <-> SKU.",
+    "params": {
+      "document_type": {
+        "type": "string",
+        "req": true
+      },
+      "document_id": {
+        "type": "string",
+        "req": true
+      }
+    }
+  },
+  "saltoki__list_saltoki_invoices": {
+    "mcp": "saltoki",
+    "desc": "Lista facturas con filtros de texto, rango de fechas, albarán o pedido asociado.",
+    "params": {
+      "page": {
+        "type": "integer",
+        "req": false,
+        "default": 1
+      },
+      "query": {
+        "type": "string",
+        "req": false
+      },
+      "date_from": {
+        "type": "string",
+        "req": false
+      },
+      "date_to": {
+        "type": "string",
+        "req": false
+      },
+      "albaran_number": {
+        "type": "string",
+        "req": false
+      },
+      "order_number": {
+        "type": "string",
+        "req": false
+      }
+    }
+  },
+  "visiotech__search_visiotech_products": {
+    "mcp": "visiotech",
+    "desc": "Busca cámaras, grabadores, control de accesos, redes y productos de seguridad en el catálogo oficial",
+    "params": {
+      "query": {
+        "type": "string",
+        "req": false,
+        "default": ""
+      },
+      "page": {
+        "type": "integer",
+        "req": false,
+        "default": 0
+      },
+      "limit": {
+        "type": "integer",
+        "req": false,
+        "default": 20
+      }
+    }
+  },
+  "visiotech__get_visiotech_product": {
+    "mcp": "visiotech",
+    "desc": "Consulta precio de coste instalador, PVP, existencias y especificaciones técnicas de un producto en ",
+    "params": {
+      "sku": {
+        "type": "string",
+        "req": true
+      }
+    }
+  },
+  "visiotech__list_visiotech_invoices": {
+    "mcp": "visiotech",
+    "desc": "Lista todas las facturas emitidas por Visiotech con estado, bases imponibles y enlaces de descarga o",
+    "params": {
+      "two_factor_code": {
+        "type": "string",
+        "req": false
+      }
+    }
+  },
+  "visiotech__list_visiotech_orders": {
+    "mcp": "visiotech",
+    "desc": "Lista los pedidos tramitados con Visiotech indicando fecha, importes, estado y modalidad de envío.",
+    "params": {
+      "two_factor_code": {
+        "type": "string",
+        "req": false
+      }
+    }
+  },
+  "visiotech__get_visiotech_order_detail": {
+    "mcp": "visiotech",
+    "desc": "Obtiene el desglose de líneas, artículos, cantidades, precios y estado de un pedido en Visiotech.",
+    "params": {
+      "order_id": {
+        "type": "string",
+        "req": true
+      },
+      "two_factor_code": {
+        "type": "string",
+        "req": false
+      }
+    }
+  },
+  "visiotech__get_visiotech_account_profile": {
+    "mcp": "visiotech",
+    "desc": "Obtiene los datos de la cuenta de cliente y configuración comercial en Visiotech Security.",
+    "params": {
+      "two_factor_code": {
+        "type": "string",
+        "req": false
+      }
+    }
+  },
+  "visiotech__download_visiotech_datasheet": {
+    "mcp": "visiotech",
+    "desc": "Descarga la ficha técnica oficial en PDF de un producto directamente desde el bucket Amazon S3 de Vi",
+    "params": {
+      "sku": {
+        "type": "string",
+        "req": true
+      }
+    }
+  },
+  "visiotech__get_visiotech_skill": {
+    "mcp": "visiotech",
+    "desc": "Retorna la guía operativa oficial, reglas de negocio y resolución de fichas técnicas en PDF de Visio",
+    "params": {}
+  }
+}

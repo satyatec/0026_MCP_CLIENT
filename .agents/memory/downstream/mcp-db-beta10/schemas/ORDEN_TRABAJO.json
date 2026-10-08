@@ -1,0 +1,18 @@
+{
+  "table": "SATYA.ORDEN_TRABAJO",
+  "primary_key": "IDORDEN_TRABAJO",
+  "foreign_keys": {
+    "IDSISTEMA": "SATYA.SISTEMA",
+    "IDCLIENTE": "SATYA.CLIENTE",
+    "IDTACTUACION_SISTEMA": "SATYA.TACTUACION_SISTEMA"
+  },
+  "key_columns": [
+    "IDORDEN_TRABAJO",
+    "NORDEN_TRABAJO",
+    "IDSISTEMA",
+    "IDCLIENTE",
+    "FORDEN",
+    "ESTADO",
+    "IDTACTUACION_SISTEMA"
+  ]
+}

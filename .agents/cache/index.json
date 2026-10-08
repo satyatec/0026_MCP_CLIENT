@@ -1,0 +1,144 @@
+{
+  "version": "1.0",
+  "updated_at": "2026-10-04T14:25:05.873Z",
+  "entries": {
+    "consulta_productos_4k_detectores": {
+      "file": "downstream/mcp-casmar/consulta_productos_4k_detectores.md",
+      "cached_at": "2026-10-02T19:21:36.406Z",
+      "ttl_hours": 24,
+      "size_bytes": 2218
+    },
+    "analisis_ot_52756": {
+      "file": "downstream/mcp-db-beta10/analisis_ot_52756.md",
+      "cached_at": "2026-10-02T19:12:31.330Z",
+      "ttl_hours": 24,
+      "size_bytes": 2422
+    },
+    "analisis_tiempos_cuotas_51_mntos_semana_14_20_sept": {
+      "file": "downstream/mcp-db-beta10/analisis_tiempos_cuotas_51_mntos_semana_14_20_sept.md",
+      "cached_at": "2026-10-02T20:23:01.662Z",
+      "ttl_hours": 24,
+      "size_bytes": 8359
+    },
+    "billing_annual_2026": {
+      "file": "downstream/mcp-db-beta10/billing_annual_2026.md",
+      "cached_at": "2026-10-02T17:52:41.056Z",
+      "ttl_hours": 24,
+      "size_bytes": 492
+    },
+    "facturacion_saltoki_visiotech_202609": {
+      "file": "downstream/mcp-db-beta10/facturacion_saltoki_visiotech_202609.md",
+      "cached_at": "2026-10-02T18:00:25.644Z",
+      "ttl_hours": 24,
+      "size_bytes": 821
+    },
+    "hours_techs_sept2026": {
+      "file": "downstream/mcp-db-beta10/hours_techs_sept2026.md",
+      "cached_at": "2026-10-02T17:55:36.351Z",
+      "ttl_hours": 24,
+      "size_bytes": 542
+    },
+    "mntos_semana_14_20_septiembre_tiempos_teoricos": {
+      "file": "downstream/mcp-db-beta10/mntos_semana_14_20_septiembre_tiempos_teoricos.md",
+      "cached_at": "2026-10-02T20:10:45.133Z",
+      "ttl_hours": 24,
+      "size_bytes": 8292
+    },
+    "ots_mantenimiento_semana_20260914_20260920": {
+      "file": "downstream/mcp-db-planner/ots_mantenimiento_semana_20260914_20260920.md",
+      "cached_at": "2026-10-02T19:00:47.736Z",
+      "ttl_hours": 24,
+      "size_bytes": 1412
+    },
+    "ots_mantenimiento_sin_tiempo_teorico": {
+      "file": "downstream/mcp-db-planner/ots_mantenimiento_sin_tiempo_teorico.md",
+      "cached_at": "2026-10-02T18:07:02.533Z",
+      "ttl_hours": 24,
+      "size_bytes": 8895
+    },
+    "comparativa_ajax_visiotech_vs_ibd": {
+      "file": "downstream/mcp-ibd/comparativa_ajax_visiotech_vs_ibd.md",
+      "cached_at": "2026-10-03T17:05:35.527Z",
+      "ttl_hours": 24,
+      "size_bytes": 2088
+    },
+    "consulta_camaras_detectores_20261002": {
+      "file": "downstream/mcp-saltoki/consulta_camaras_detectores_20261002.md",
+      "cached_at": "2026-10-02T19:16:56.083Z",
+      "ttl_hours": 24,
+      "size_bytes": 1079
+    },
+    "facturas_2026_09": {
+      "file": "downstream/mcp-visiotech/facturas_2026_09.md",
+      "cached_at": "2026-10-02T18:01:47.243Z",
+      "ttl_hours": 24,
+      "size_bytes": 506
+    },
+    "consulta_productos_20261002": {
+      "file": "downstream/mcp-visiotech/consulta_productos_20261002.md",
+      "cached_at": "2026-10-02T20:04:46.342Z",
+      "ttl_hours": 24,
+      "size_bytes": 3205
+    },
+    "presupuesto_ajax_interior_visiotech_beta10": {
+      "file": "downstream/mcp-visiotech/presupuesto_ajax_interior_visiotech_beta10.md",
+      "cached_at": "2026-10-03T16:57:26.491Z",
+      "ttl_hours": 24,
+      "size_bytes": 2315
+    },
+    "products": {
+      "file": "downstream/mcp-visiotech/products.md",
+      "cached_at": "2026-10-02T17:39:24.461Z",
+      "ttl_hours": 24,
+      "size_bytes": 777
+    },
+    "mntos_enero_2026_sin_tiempo_teorico": {
+      "file": "downstream/mcp-db-beta10/mntos_enero_2026_sin_tiempo_teorico.json",
+      "cached_at": "2026-10-04T14:31:17.572Z",
+      "ttl_hours": 24,
+      "size_bytes": 39686
+    },
+    "facturas_casmar_2026_08": {
+      "file": "downstream/mcp-casmar/facturas_2026_08.md",
+      "cached_at": "2026-10-04T18:35:40.000Z",
+      "ttl_hours": 24,
+      "size_bytes": 220
+    },
+    "facturas_saltoki_2026_08": {
+      "file": "downstream/mcp-saltoki/facturas_2026_08.md",
+      "cached_at": "2026-10-04T18:35:40.000Z",
+      "ttl_hours": 24,
+      "size_bytes": 3500
+    },
+    "conciliacion_facturas_casmar_saltoki_agosto_2026": {
+      "file": "downstream/mcp-db-beta10/conciliacion_facturas_casmar_saltoki_agosto_2026.md",
+      "cached_at": "2026-10-04T18:43:00.000Z",
+      "ttl_hours": 24,
+      "size_bytes": 1100
+    },
+    "facturacion_cuatro_empresas_agosto_2026": {
+      "file": "downstream/mcp-db-beta10/facturacion_cuatro_empresas_agosto_2026.md",
+      "cached_at": "2026-10-04T19:15:30.000Z",
+      "ttl_hours": 24,
+      "size_bytes": 1350
+    },
+    "tarifas_ajax_descubiertas_20261003": {
+      "file": "downstream/mcp-visiotech/tarifas_ajax_descubiertas_20261003.md",
+      "cached_at": "2026-10-03T19:12:00.000Z",
+      "ttl_hours": 72,
+      "size_bytes": 600
+    },
+    "facturas_saltoki_2026_09": {
+      "file": "downstream/mcp-saltoki/facturas_2026_09.md",
+      "cached_at": "2026-10-02T18:01:00.000Z",
+      "ttl_hours": 24,
+      "size_bytes": 4030
+    },
+    "auditoria_arquitectura": {
+      "file": "auditoria_arquitectura.md",
+      "cached_at": "2026-10-04T19:36:44.000Z",
+      "ttl_hours": 24,
+      "size_bytes": 8500
+    }
+  }
+}

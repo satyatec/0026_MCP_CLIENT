@@ -1,0 +1,88 @@
+---
+trigger: always_on
+---
+
+# Directiva MCP: Gateway, Skills, Memoria, Caché y BBDD
+
+## 0. Inicialización Obligatoria
+1. **Estructura base:** Verificar/crear directorios:
+   - `.agents/skills/{gateway,downstream}`
+   - `.agents/memory/{gateway,downstream}` y `.agents/memory/MEMORY.md`
+   - `.agents/cache/{gateway,downstream}`
+2. **Sincronización Gateway Skill:**
+   - Si no existe `.agents/skills/gateway/SKILL.md`: invocar `gateway_get_gateway_skill` y guardar.
+   - Re-sincronizar tras `gateway_get_announcements` o `gateway_refresh_catalog`.
+
+## 1. Ruteo Exclusivo vía `mcp-gateway`
+- Toda consulta, catálogo, esquema o API debe pasar **ÚNICAMENTE** por `mcp-gateway` (`gateway_execute_tool`, `gateway_search_tools`, etc.).
+- Prohibido inspeccionar scripts locales o archivos de código (`.py`, etc.) para deducir herramientas. Solo contrato MCP.
+
+## 2. Descubrimiento Progresivo Downstream
+Primer contacto con MCP downstream:
+- `tools.json` (`.agents/skills/downstream/<mcp>/tools.json`): Esquemas formales vía `gateway_search_tools` / `gateway_get_tool_schema`. Consultar este archivo en turnos posteriores sin peticiones redundantes.
+- `SKILL.md` (`.agents/skills/downstream/<mcp>/SKILL.md`): Pautas operativas, flujos habituales y particularidades.
+
+## 3. Aislamiento de Memoria Contextual
+- Gateway: `.agents/memory/gateway/MEMORY.md`.
+- Downstream: `.agents/memory/downstream/<mcp>/MEMORY.md` (un espacio por proveedor/BBDD).
+- Raíz `.agents/memory/MEMORY.md`: Solo índice global y enlaces downstream.
+
+## 4. Cero Suposiciones de Esquema BBDD
+- Prohibido asumir nombres de columnas/tablas.
+- Consultar estructura antes de ejecutar SQL (`db__schema_information` o memoria local).
+- Registrar de inmediato columnas y tipos descubiertos en `.agents/memory/downstream/<mcp>/MEMORY.md`.
+
+## 5. Persistencia: Memoria vs Caché
+Evaluar destino de cada dato:
+- **Memoria Contextual (`.agents/memory/` — Permanente):**
+  - Esquemas BBDD, 2FA, particularidades, constantes.
+  - Frontmatter obligatorio:
+    ```yaml
+    ---
+    updated_at: YYYY-MM-DDTHH:mm:ssZ
+    source_downstream: <nombre-mcp>
+    ---
+    ```
+  - Si es downstream nuevo, enlazar en `.agents/memory/MEMORY.md`.
+- **Caché Temporal (`.agents/cache/` — Volátil):**
+  - Facturas, pedidos, stock puntual, balances.
+  - Frontmatter obligatorio:
+    ```yaml
+    ---
+    cached_at: YYYY-MM-DDTHH:mm:ssZ
+    ttl_hours: 24
+    source_downstream: <nombre-mcp>
+    ---
+    ```
+  - Expiración: Si `now - cached_at > ttl_hours`, invalidar/purgar y re-consultar al gateway.
+
+## 6. Resumen Obligatorio de Ciclos de Inferencia
+Incluir al final de cada turno:
+- **Símbolos:** 🟢 (ok), 🔴 (error), 🔵 (ventaja skill/memoria/regla).
+- **Tipos:** `[DISCOVERY]`, `[EXEC]`, `[CACHE/MEM]`, `[PERSIST]`, `[RETRY]`, `[ORCHEST]`.
+- **Formato:** `- <Símbolo> Ciclo N [<TIPO>] (~X.Xs real | ~Y.Ys tool) | 🤖 Modelo: <Nombre/Tier>: Descripción.`
+- **Métricas Globales:**
+  - 🤖 **Modelo Principal / Workers:** Modelo activo en UI (desplegable) y tiers de subagentes
+  - ⏱️ Tiempo Real Total (Wall-Clock)
+  - ⏱️ Tiempo Neto Downstream (Tools/BBDD)
+  - 🌡️ Temperatura Utilizada (acorde a la categoría de la regla 7)
+  - 📊 Estimación de Ventana de Contexto
+
+
+## 7. Rigor y Temperatura por Categoría
+- **B2B (`ibd`, `saltoki`, `visiotech`, `casmar`, `detnov`, `aql`):** Temp ≈ 0.1. Determinismo literal, cero alucinación/redondeo en precios/SKUs.
+- **BBDD / ERP (`db-beta10`, `db-planner`):** Temp ≈ 0.2. Precisión estricta de esquemas, tipos y sintaxis SQL.
+- **Dispositivos (`ajax`):** Temp ≈ 0.1. Telemetría y estados exactos sin especulación.
+- **Semántica (`qdrant`, `synology`):** Temp ≈ 0.3 - 0.4. Similitud semántica y búsqueda conceptual.
+
+## 8. Paralelización de Tareas (Subagentes)
+- Activar cuando haya dos o más tareas independientes (Inter-MCP o Intra-MCP).
+- Orquestador lanza subagentes en paralelo con `invoke_subagent`.
+- Subagentes ejecutan de forma aislada consultando su `tools.json`.
+- Orquestador consolida datos y gestiona persistencia en `.agents/cache/`.
+
+## 9. Enrutamiento de Modelos y Latencia de Inferencia
+- **Sesión Principal (UI):** Priorizar **Gemini 3.8 Flash (Low)** para turnos operativos. Cero sobrecarga de thinking innecesario.
+- **Workers / Subagentes:** Fijar obligatoriamente `Model: 'flash_lite'` o `'flash'` en `invoke_subagent` para ejecuciones mecánicas contra el MCP Gateway (SQL Beta10/Planner, catálogos B2B, telemetría Ajax).
+- **Modelo Pro (3.1 Pro):** Restringido exclusivamente a tareas de diseño arquitectónico inicial, diagnóstico de bugs complejos en pipeline o refactorizaciones globales.
+

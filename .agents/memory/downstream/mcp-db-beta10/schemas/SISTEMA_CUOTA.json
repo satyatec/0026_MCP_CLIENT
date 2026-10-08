@@ -1,0 +1,19 @@
+{
+  "table": "SATYA.SISTEMA_CUOTA",
+  "primary_key": "IDSISTEMA_CUOTA",
+  "foreign_keys": {
+    "IDSISTEMA": "SATYA.SISTEMA",
+    "IDCONCEPTO_CUOTA": "SATYA.CONCEPTO_CUOTA",
+    "IDPERIODO_CUOTA": "SATYA.PERIODO_CUOTA"
+  },
+  "key_columns": [
+    "IDSISTEMA_CUOTA",
+    "IDSISTEMA",
+    "IDCONCEPTO_CUOTA",
+    "PRECIO_MES",
+    "COSTO_MES",
+    "ESTADO",
+    "FCONTRATACION",
+    "FFIN_CUOTA"
+  ]
+}

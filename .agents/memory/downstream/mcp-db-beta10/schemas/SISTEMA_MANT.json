@@ -1,0 +1,20 @@
+{
+  "table": "SATYA.SISTEMA_MANT",
+  "primary_key": "IDSISTEMA_MANT",
+  "foreign_keys": {
+    "IDSISTEMA": "SATYA.SISTEMA",
+    "IDTACTUACION": "SATYA.TACTUACION",
+    "IDPERIODO_REVISION": "SATYA.PERIODO_REVISION"
+  },
+  "key_columns": [
+    "IDSISTEMA_MANT",
+    "IDSISTEMA",
+    "IDTACTUACION",
+    "DURACION_ESTIMADA",
+    "ESTADO",
+    "ACTIVAR",
+    "FULTREVISION",
+    "FPROXREVISION"
+  ],
+  "notes": "DURACION_ESTIMADA está en minutos (tiempo teórico de revisión)."
+}

@@ -1,0 +1,25 @@
+# OS metadata
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# IDEs & Editors
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Node / Python artifacts
+node_modules/
+__pycache__/
+*.py[cod]
+*$py.class
+.env
+.venv
+env/
+venv/
+
+# Scratch & Temporary
+scratch/
+tmp/
+*.tmp

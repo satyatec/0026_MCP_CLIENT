@@ -1,0 +1,20 @@
+{
+  "table": "SATYA.FACTURACLI",
+  "primary_key": "IDFACTURACLI",
+  "foreign_keys": {
+    "IDCLIENTE": "SATYA.CLIENTE",
+    "IDSERIE_FACTURACLI": "SATYA.SERIE_FACTURACLI",
+    "IDTFACTURACLI": "SATYA.TFACTURACLI"
+  },
+  "key_columns": [
+    "IDFACTURACLI",
+    "FFACTURA",
+    "NFACTURA",
+    "IDSERIE_FACTURACLI",
+    "IDCLIENTE",
+    "ESTADO",
+    "IDTFACTURACLI",
+    "TOTAL",
+    "IMPORTE"
+  ]
+}

@@ -1,0 +1,104 @@
+[
+  {
+    "action_name": "ibd__search_ibd_products",
+    "description": "Busca productos, referencias Dahua y precios de instalador B2B en el catalogo de IBD Global.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "query": {
+          "type": "string",
+          "description": "Texto de búsqueda o referencia de producto"
+        }
+      },
+      "required": ["query"]
+    }
+  },
+  {
+    "action_name": "ibd__list_ibd_orders",
+    "description": "Lista los pedidos de compra tramitados en el portal de IBD Global.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "default": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  {
+    "action_name": "ibd__get_ibd_order_detail",
+    "description": "Consulta el detalle de un pedido de IBD Global con sus lineas de articulos, cantidades, subtotales y albaranes asociados.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "order_id": {
+          "type": "string"
+        }
+      },
+      "required": ["order_id"]
+    }
+  },
+  {
+    "action_name": "ibd__download_ibd_order_pdf",
+    "description": "Descarga el documento oficial de pedido de IBD Global en formato PDF a la carpeta downloads/ibd/pedidos/.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "order_id": {
+          "type": "string"
+        }
+      },
+      "required": ["order_id"]
+    }
+  },
+  {
+    "action_name": "ibd__list_ibd_invoices",
+    "description": "Lista las facturas emitidas por IBD Global con sus importes, fechas de vencimiento y estados.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "page": {
+          "type": "integer",
+          "default": 1
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  {
+    "action_name": "ibd__download_ibd_invoice_pdf",
+    "description": "Descarga la factura oficial de IBD Global en formato PDF a la carpeta downloads/ibd/facturas/.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "invoice_id": {
+          "type": "string"
+        }
+      },
+      "required": ["invoice_id"]
+    }
+  },
+  {
+    "action_name": "ibd__download_ibd_delivery_note_pdf",
+    "description": "Descarga el albaran de entrega / picking oficial en formato PDF a la carpeta downloads/ibd/albaranes/.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "delivery_note_id": {
+          "type": "string"
+        }
+      },
+      "required": ["delivery_note_id"]
+    }
+  },
+  {
+    "action_name": "ibd__get_ibd_account_profile",
+    "description": "Consulta los datos de la cuenta de cliente, NIF/CIF, contacto y dirección en IBD Global.",
+    "input_schema": {
+      "type": "object",
+      "properties": {}
+    }
+  }
+]
