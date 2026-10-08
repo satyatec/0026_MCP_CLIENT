@@ -12,6 +12,9 @@ trigger: always_on
 2. **Sincronización Gateway Skill:**
    - Si no existe `.agents/skills/gateway/SKILL.md`: invocar `gateway_get_gateway_skill` y guardar.
    - Re-sincronizar tras `gateway_get_announcements` o `gateway_refresh_catalog`.
+3. **Verificación de Actualización Semanal (`/reload`):**
+   - Comprobar la antigüedad de `.agents/cache/last_reload.txt`.
+   - Si no existe o tiene `días_transcurridos > 7`: ejecutar `python scripts/reload_project.py --mode merge` de forma transparente.
 
 ## 1. Ruteo Exclusivo vía `mcp-gateway`
 - Toda consulta, catálogo, esquema o API debe pasar **ÚNICAMENTE** por `mcp-gateway` (`gateway_execute_tool`, `gateway_search_tools`, etc.).
