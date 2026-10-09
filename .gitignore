@@ -24,3 +24,6 @@ scratch/
 tmp/
 *.tmp
 .agents/cache/last_reload.txt
+
+# Claude Code (ajustes personales)
+.claude/settings.local.json

@@ -1,0 +1,82 @@
+[
+  {
+    "action_name": "saltoki__search_saltoki_products",
+    "description": "Busca productos en el catálogo de Saltoki por texto/SKU con filtro opcional por categoría (acepta tanto texto descriptivo como 'fontanería', 'clima', 'electricidad', o ID numérico).",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "query": { "type": "string", "default": "" },
+        "category": { "anyOf": [{ "type": "string" }, { "type": "null" }], "default": null },
+        "category_id": { "anyOf": [{ "type": "string" }, { "type": "null" }], "default": null },
+        "offset": { "type": "integer", "default": 0 },
+        "grouped": { "type": "boolean", "default": false },
+        "in_recent_purchases": { "type": "boolean", "default": false }
+      },
+      "additionalProperties": false
+    }
+  },
+  {
+    "action_name": "saltoki__get_saltoki_product",
+    "description": "Consulta precio de coste, venta y descripción homogeneizada de un producto por SKU en Saltoki (consulta ultra-rápida).",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "sku": { "type": "string" }
+      },
+      "required": ["sku"],
+      "additionalProperties": false
+    }
+  },
+  {
+    "action_name": "saltoki__get_saltoki_product_extended",
+    "description": "Consulta extendida con existencias por delegación, plazos de envío y ficha técnica oficial para un SKU.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "sku": { "type": "string" }
+      },
+      "required": ["sku"],
+      "additionalProperties": false
+    }
+  },
+  {
+    "action_name": "saltoki__list_saltoki_orders",
+    "description": "Lista pedidos con filtros por fecha, texto, obra o SKU contenido.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "page": { "type": "integer", "default": 1 }
+      }
+    }
+  },
+  {
+    "action_name": "saltoki__trace_saltoki_document",
+    "description": "Trazabilidad completa entre documentos de Saltoki: Factura <-> Albarán <-> Pedido <-> SKU.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "document_type": {
+          "type": "string",
+          "enum": ["order", "delivery_note", "invoice"]
+        },
+        "document_id": { "type": "string" }
+      },
+      "required": ["document_type", "document_id"]
+    }
+  },
+  {
+    "action_name": "saltoki__list_saltoki_invoices",
+    "description": "Lista facturas con filtros de texto, rango de fechas, albarán o pedido asociado.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "page": { "type": "integer", "default": 1 },
+        "query": { "type": "string" },
+        "date_from": { "type": "string" },
+        "date_to": { "type": "string" },
+        "albaran_number": { "type": "string" },
+        "order_number": { "type": "string" }
+      }
+    }
+  }
+]

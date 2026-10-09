@@ -81,7 +81,9 @@ class Auditor:
             self.agents_dir / "cache" / "downstream",
         ]
         required_files = [
+            self.agents_dir / "rules" / "core.md",
             self.agents_dir / "rules" / "GEMINI.md",
+            self.root / "CLAUDE.md",
             self.agents_dir / "memory" / "MEMORY.md",
             self.agents_dir / "skills" / "gateway" / "SKILL.md",
         ]
@@ -373,6 +375,28 @@ class Auditor:
         self.log_pass(cat, f"Auditoría de caché completada: {total_cache_files} archivos ({expired_files} expirados por TTL)")
 
     # =========================================================================
+    # CHECK 6: CLAUDE CODE SKILLS MIRROR (.claude/skills <- .agents/skills)
+    # =========================================================================
+    def check_claude_skills_sync(self):
+        cat = "INTERFACES"
+        try:
+            sys.path.insert(0, str(Path(__file__).resolve().parent))
+            import sync_claude_skills as sync
+        except Exception as e:
+            self.log_warn(cat, f"No se pudo cargar sync_claude_skills.py: {e}")
+            return
+
+        changes = sync.diff(sync.expected_files())
+        if not changes:
+            self.log_pass(cat, ".claude/skills/ sincronizado con .agents/skills/ (Claude Code)")
+        elif self.auto_fix:
+            sync.sync(sync.expected_files())
+            self.log_warn(cat, f"[AUTO-FIX] .claude/skills/ re-sincronizado ({len(changes)} cambios)")
+        else:
+            for c in changes:
+                self.log_fail(cat, f".claude/skills/ desincronizado: {c} (ejecutar scripts/sync_claude_skills.py)")
+
+    # =========================================================================
     # AUDIT EXECUTION & REPORTING
     # =========================================================================
     def run_all(self):
@@ -381,6 +405,7 @@ class Auditor:
         self.check_skills_quality()
         self.check_memory_purity()
         self.check_cache_integrity()
+        self.check_claude_skills_sync()
 
     def calculate_score(self) -> float:
         total = self.passed_count + self.warn_count * 0.5 + self.fail_count

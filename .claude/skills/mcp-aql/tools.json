@@ -1,0 +1,35 @@
+[
+  {
+    "action_name": "aql__search_aql_products",
+    "description": "Busca productos en el catálogo B2B de AQL Protección por texto o referencia.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "query": { "type": "string" },
+        "page": { "type": "integer", "default": 1 }
+      },
+      "required": ["query"]
+    }
+  },
+  {
+    "action_name": "aql__list_aql_orders",
+    "description": "Listado de pedidos tramitados en AQL Protección con número, fecha, importe total y estado.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "page": { "type": "integer", "default": 1 }
+      }
+    }
+  },
+  {
+    "action_name": "aql__get_aql_order_detail",
+    "description": "Desglose completo de líneas, artículos y precios de un pedido en AQL Protección.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "order_id": { "type": "string" }
+      },
+      "required": ["order_id"]
+    }
+  }
+]

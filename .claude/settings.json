@@ -1,0 +1,30 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__satya-gateway__gateway_search_tools",
+      "mcp__satya-gateway__gateway_get_tool_schema",
+      "mcp__satya-gateway__gateway_get_gateway_skill",
+      "mcp__satya-gateway__gateway_get_announcements",
+      "mcp__satya-gateway__gateway_get_connection_status",
+      "mcp__satya-gateway__gateway_list_resources",
+      "mcp__satya-gateway__gateway_read_resource",
+      "mcp__satya-gateway__gateway_list_skill_proposals",
+      "mcp__satya-gateway__gateway_get_skill_proposal",
+      "Bash(python scripts/audit_client.py:*)",
+      "Bash(python scripts/review_skills.py:*)",
+      "Bash(python scripts/sync_claude_skills.py:*)"
+    ]
+  },
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python scripts/sync_claude_skills.py --quiet"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -32,7 +32,13 @@ def run_cmd(cmd, cwd=None):
     return res.returncode, stdout, stderr
 
 
-def sync_repository(mode="merge", branch="main", clean_untracked=False):
+def current_branch():
+    code, out, _ = run_cmd("git rev-parse --abbrev-ref HEAD")
+    return out if code == 0 and out and out != "HEAD" else "main"
+
+
+def sync_repository(mode="merge", branch=None, clean_untracked=False):
+    branch = branch or current_branch()
     print(f"{BLUE}[*] Iniciando sincronización del repositorio MCP Client (Rama: {branch}){RESET}")
     
     # 1. Fetch remote
@@ -67,7 +73,13 @@ def sync_repository(mode="merge", branch="main", clean_untracked=False):
     else:
         print(f"{GREEN}[3/4] Conservando archivos no seguidos locales.{RESET}")
         
-    # 5. Run audit check
+    # 5. Regenerate interface-specific mirrors (Claude Code skills)
+    sync_script = Path(__file__).parent / "sync_claude_skills.py"
+    if sync_script.exists():
+        code, out, err = run_cmd(f"python {sync_script}")
+        print(out or err)
+
+    # 6. Run audit check
     print(f"{BLUE}[4/4] Verificando salud de la arquitectura post-sincronización...{RESET}")
     audit_script = Path(__file__).parent / "audit_client.py"
     if audit_script.exists():
@@ -84,7 +96,7 @@ def sync_repository(mode="merge", branch="main", clean_untracked=False):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Actualizador del proyecto MCP Client desde GitHub.")
     parser.add_argument("--mode", choices=["merge", "hard"], default="merge", help="Modo: 'merge' (combina sin perder cambios) o 'hard' (iguala exacto a GitHub).")
-    parser.add_argument("--branch", default="main", help="Rama remota a sincronizar (por defecto: main).")
+    parser.add_argument("--branch", default=None, help="Rama remota a sincronizar (por defecto: la rama actual).")
     parser.add_argument("--clean", action="store_true", help="Eliminar archivos locales no seguidos (git clean -fd).")
     
     args = parser.parse_args()

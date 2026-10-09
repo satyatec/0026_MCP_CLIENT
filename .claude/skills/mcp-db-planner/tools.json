@@ -1,0 +1,33 @@
+[
+  {
+    "action_name": "db__run_query",
+    "description": "Ejecuta una consulta SQL SELECT en la base de datos PostgreSQL Planner pasando connection='planner_pg'.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "connection": {
+          "type": "string",
+          "default": "planner_pg",
+          "description": "Nombre de la conexión de BBDD en db_gateway"
+        },
+        "sql": {
+          "type": "string",
+          "description": "Sentencia SQL SELECT a ejecutar"
+        }
+      },
+      "required": ["sql"]
+    }
+  },
+  {
+    "action_name": "db__schema_information",
+    "description": "Inspecciona columnas y tipos de tablas de la conexión PostgreSQL Planner.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "connection": { "type": "string", "default": "planner_pg" },
+        "table_name": { "type": "string" }
+      },
+      "required": ["table_name"]
+    }
+  }
+]
