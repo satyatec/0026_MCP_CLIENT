@@ -1,0 +1,34 @@
+[
+  {
+    "action_name": "db__run_query",
+    "description": "Ejecuta una consulta SQL SELECT en la base de datos Oracle ERP Beta10 pasando connection='beta10'.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "connection": {
+          "type": "string",
+          "default": "beta10",
+          "description": "Nombre de la conexión de BBDD en db_gateway"
+        },
+        "sql": {
+          "type": "string",
+          "description": "Sentencia SQL SELECT a ejecutar"
+        }
+      },
+      "required": ["sql"]
+    }
+  },
+  {
+    "action_name": "db__schema_information",
+    "description": "Inspecciona columnas y tipos de tablas de la conexión Oracle Beta10.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "connection": { "type": "string", "default": "beta10" },
+        "schema": { "type": "string", "default": "SATYA" },
+        "table_filter": { "type": "string" }
+      },
+      "required": ["connection"]
+    }
+  }
+]

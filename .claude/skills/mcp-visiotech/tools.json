@@ -1,0 +1,96 @@
+[
+  {
+    "action_name": "visiotech__search_visiotech_products",
+    "provider": "visiotech",
+    "description": "Busca cámaras, grabadores, control de accesos, redes y productos de seguridad en el catálogo oficial de Visiotech mediante motor Algolia.",
+    "input_schema": {
+      "properties": {
+        "query": { "default": "", "type": "string" },
+        "page": { "default": 0, "type": "integer" },
+        "limit": { "default": 20, "type": "integer" }
+      },
+      "type": "object",
+      "additionalProperties": false
+    }
+  },
+  {
+    "action_name": "visiotech__get_visiotech_product",
+    "provider": "visiotech",
+    "description": "Consulta precio de coste instalador, PVP, existencias y especificaciones técnicas de un producto en Visiotech por referencia o SKU.",
+    "input_schema": {
+      "properties": {
+        "sku": { "type": "string" }
+      },
+      "required": ["sku"],
+      "type": "object",
+      "additionalProperties": false
+    }
+  },
+  {
+    "action_name": "visiotech__list_visiotech_invoices",
+    "provider": "visiotech",
+    "description": "Lista todas las facturas emitidas por Visiotech con estado, bases imponibles y enlaces de descarga oficial en PDF.",
+    "input_schema": {
+      "properties": {
+        "two_factor_code": { "type": "string" }
+      },
+      "type": "object"
+    }
+  },
+  {
+    "action_name": "visiotech__list_visiotech_orders",
+    "provider": "visiotech",
+    "description": "Lista los pedidos tramitados con Visiotech indicando fecha, importes, estado y modalidad de envío.",
+    "input_schema": {
+      "properties": {
+        "two_factor_code": { "type": "string" }
+      },
+      "type": "object"
+    }
+  },
+  {
+    "action_name": "visiotech__get_visiotech_order_detail",
+    "provider": "visiotech",
+    "description": "Obtiene el desglose de líneas, artículos, cantidades, precios y estado de un pedido en Visiotech.",
+    "input_schema": {
+      "properties": {
+        "order_id": { "type": "string" },
+        "two_factor_code": { "type": "string" }
+      },
+      "required": ["order_id"],
+      "type": "object"
+    }
+  },
+  {
+    "action_name": "visiotech__get_visiotech_account_profile",
+    "provider": "visiotech",
+    "description": "Obtiene los datos de la cuenta de cliente y configuración comercial en Visiotech Security.",
+    "input_schema": {
+      "properties": {
+        "two_factor_code": { "type": "string" }
+      },
+      "type": "object"
+    }
+  },
+  {
+    "action_name": "visiotech__download_visiotech_datasheet",
+    "provider": "visiotech",
+    "description": "Descarga la ficha técnica oficial en PDF de un producto directamente desde el bucket Amazon S3 de Visiotech.",
+    "input_schema": {
+      "properties": {
+        "sku": { "type": "string" }
+      },
+      "required": ["sku"],
+      "type": "object"
+    }
+  },
+  {
+    "action_name": "visiotech__get_visiotech_skill",
+    "provider": "visiotech",
+    "description": "Retorna la guía operativa oficial, reglas de negocio y resolución de fichas técnicas en PDF de Visiotech (SKILL.md).",
+    "input_schema": {
+      "type": "object",
+      "properties": {}
+    }
+  }
+]

@@ -1,0 +1,36 @@
+[
+  {
+    "action_name": "detnov__list_detnov_invoices",
+    "description": "Consulta facturas reales emitidas por Detnov Security en un rango de fechas.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "start_date": { "type": "string", "description": "Fecha inicial DD/MM/YYYY" },
+        "end_date": { "type": "string", "description": "Fecha final DD/MM/YYYY" }
+      }
+    }
+  },
+  {
+    "action_name": "detnov__list_detnov_orders",
+    "description": "Consulta histórico de pedidos de compra en Detnov Security en un rango de fechas.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "start_date": { "type": "string", "description": "Fecha inicial DD/MM/YYYY" },
+        "end_date": { "type": "string", "description": "Fecha final DD/MM/YYYY" }
+      }
+    }
+  },
+  {
+    "action_name": "detnov__get_detnov_order_detail",
+    "description": "Desglose de líneas de un pedido de compra en Detnov Security.",
+    "input_schema": {
+      "type": "object",
+      "properties": {
+        "order_number": { "type": "string" },
+        "exercise": { "type": "integer", "default": 2026 }
+      },
+      "required": ["order_number"]
+    }
+  }
+]
