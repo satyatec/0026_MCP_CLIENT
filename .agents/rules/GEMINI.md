@@ -72,6 +72,10 @@ Incluir al final de cada turno:
   - 🛠️ **Herramientas ejecutadas en el turno:** Lista explícita de invocaciones realizadas
   - 🌡️ Temperatura Utilizada (acorde a la categoría de la regla 7)
   - 📊 Estimación de Ventana de Contexto (tokens aproximados en contexto)
+- **📦 Persistencia y Propuestas del Turno:**
+  - 📁 **Caché Guardada/Consultada:** Archivos modificados o consultados en `.agents/cache/` (con TTL y Origen)
+  - 🧠 **Memoria Registrada/Consultada:** Archivos actualizados o leídos en `.agents/memory/`
+  - 💡 **Skill Proposals:** Estado de propuestas creadas, revisadas o pendientes en el Gateway
 
 
 ## 7. Rigor y Temperatura por Categoría
