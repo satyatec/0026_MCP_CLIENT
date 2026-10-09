@@ -8,6 +8,7 @@ Este archivo actúa como índice global y registro de conocimiento permanente de
   - `.agents/memory/downstream/mcp-ibd/MEMORY.md`: Estructura de campos y respuestas de la API B2B (módulos de compras y facturación).
   - `.agents/memory/downstream/mcp-saltoki/MEMORY.md`: Mapeo estructural de categorías de catálogo (`3591`, `4826`).
   - `.agents/memory/downstream/mcp-db-beta10/MEMORY.md`: Esquemas relacionales de BBDD Oracle (`SATYA.*`), catálogos y tipos de documento.
+  - `.agents/memory/downstream/db_gateway/MEMORY.md`: SQL canónico de facturación por empresa y período, relación de tablas `EMPRESA → SERIE_FACTURACLI → FACTURACLI → LFACTURACLI`, advertencias de guardrails PL/SQL y fecha máxima de datos.
   - `.agents/memory/downstream/mcp-visiotech/MEMORY.md`: Cuenta de cliente (`VT8374DTC`), protocolo de autenticación 2FA y referencias técnicas de catálogo.
   - `.agents/memory/downstream/mcp-casmar/MEMORY.md`: Código de cliente B2B (`C02170`), especificaciones logísticas y códigos de stock.
   - `.agents/memory/downstream/mcp-db-planner/MEMORY.md`: Esquemas de PostgreSQL (`resources`, `events`, `oracle_audit_cache`) y mapeo de técnicos con Beta10.
