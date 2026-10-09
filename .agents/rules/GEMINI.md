@@ -63,13 +63,12 @@ Evaluar destino de cada dato:
 Incluir al final de cada turno:
 - **Símbolos:** 🟢 (ok), 🔴 (error), 🔵 (ventaja skill/memoria/regla).
 - **Tipos:** `[DISCOVERY]`, `[EXEC]`, `[CACHE/MEM]`, `[PERSIST]`, `[RETRY]`, `[ORCHEST]`.
-- **Formato:** `- <Símbolo> Ciclo N [<TIPO>] (~X.Xs real | ~Y.Ys tool) | 🤖 Modelo: <Nombre/Tier>: Descripción.`
+- **Formato:** `- <Símbolo> Ciclo N [<TIPO>] | 🤖 Modelo: <Nombre/Tier>: Descripción.`
 - **Métricas Globales:**
   - 🤖 **Modelo Principal / Workers:** Modelo activo en UI (desplegable) y tiers de subagentes
-  - ⏱️ Tiempo Real Total (Wall-Clock)
-  - ⏱️ Tiempo Neto Downstream (Tools/BBDD)
+  - 🛠️ **Herramientas ejecutadas en el turno:** Lista explícita de invocaciones realizadas
   - 🌡️ Temperatura Utilizada (acorde a la categoría de la regla 7)
-  - 📊 Estimación de Ventana de Contexto
+  - 📊 Estimación de Ventana de Contexto (tokens aproximados en contexto)
 
 
 ## 7. Rigor y Temperatura por Categoría
